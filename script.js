@@ -1,58 +1,51 @@
-//Assignment Code
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//Password array values
+//Begin password creation criteria
 
+function generatePassword (){
+//Password array values
 //Numbers
-var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 //Lowercase Alphabet
 var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 //Uppercase Alphabet
 var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 //Special Characters
 var special = ['!','@','#','$','%','^','&','*','(',')','?'];
-
-//Begin password creation function with prompt answers
-function generatePassword (){
-  var finalPass = '';
   var passwordLength = prompt("Choose your password length between 8 and 25 characters."); 
-    console.log(passwordLength);
-  var useUpperCase = confirm("Click on OK to use upper case characters?");
-    console.log(useUpperCase)
-  var useNumbers = confirm("Click on OK to use numbers?");
-    console.log(useNumbers)
-  var useLowerCase = confirm("Click on OK to use lower case characters?");
-    console.log(useLowerCase)
-  var useCharacters = confirm("Click on OK to include special characters?");
-    console.log(useCharacters)
-//Assignment of characters to final password.
-    if (useUpperCase == True) {
-      finalPass = finalPass.concat(useUpperCase);
-    }
-    if (useNumbers == True) {
-      finalPass = finalPass.concat(useNumbers);
-    }
-    if (useLowerCase == True) {
-      finalPass = finalPass.concat(useLowerCase);
-    }
-    if (useCharacters == True){
-      finalPass = finalPass.concat(useCharacters);
-    }
-      console.log(finalPass);
-    var randomPw = '';
-      randomPw = randomPW + finalPass[Math.floor(Math.random() * finalPass.length)];
-      console.log(randomPw);
-      return randomPw;
+  var useUpperCase = confirm("Do you want to use upper case characters?");
+  var useNumbers= confirm("Do you want to use numbers?");
+  var useLowerCase= confirm("Do you want to use lower case characters?");
+  var useSpecial= confirm("Do you want to include special characters?");
+  if (useUpperCase == True) {
+    finalPass = finalPass.concat(upperCase);
+  }
+  if (useNumbers == True) {
+    finalPass = finalPass.concat(numbers);
+  }
+  if (useLowerCase == True) {
+    finalPass = finalPass.concat(lowerCase);
+  }
+  if (useSpecial == True) {
+    finalPass = finalPass.concat(special);
+  }
+  var finalPass = '';
+  for (let i = 0; i < passwordLength; i++){
+  var randomPw = Math.floor(Math.random()*(passwordLength));
+    finalPass = finalPass.concat(randomPw);
+  }
+ return finalPass; 
 }
+ 
 
-  
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
+
 }
 
 // Add event listener to generate button
