@@ -1,43 +1,51 @@
+
+//Password var values
+//Numbers
+var numbers = ('0123456789');
+//Lowercase Alphabet
+var lowerCase = ('abcdefghijklmnopqrstuvwxyz');
+//Uppercase Alphabet
+var upperCase = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+//Special Characters
+var special = ('!@#$%^&*()?');
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 //Begin password creation criteria
 
 function generatePassword (){
-//Password array values
-//Numbers
-var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-//Lowercase Alphabet
-var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-//Uppercase Alphabet
-var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-//Special Characters
-var special = ['!','@','#','$','%','^','&','*','(',')','?'];
-  var passwordLength = prompt("Choose your password length between 8 and 25 characters."); 
+  var finalPass = '';
+
+  var passwordLength = parseInt(prompt("Choose your password length between 8 and 25 characters.")); 
+  console.log(passwordLength)
   var useUpperCase = confirm("Do you want to use upper case characters?");
-  var useNumbers= confirm("Do you want to use numbers?");
-  var useLowerCase= confirm("Do you want to use lower case characters?");
-  var useSpecial= confirm("Do you want to include special characters?");
-  if (useUpperCase == True) {
+  console.log(useUpperCase)
+  var useNumbers = confirm("Do you want to use numbers?");
+  console.log(useNumbers)
+  var useLowerCase = confirm("Do you want to use lower case characters?");
+  console.log(useLowerCase)
+  var useSpecial = confirm("Do you want to include special characters?");
+  console.log(useSpecial)
+  if (useUpperCase === true) {
     finalPass = finalPass.concat(upperCase);
   }
-  if (useNumbers == True) {
+  if (useNumbers === true) {
     finalPass = finalPass.concat(numbers);
   }
-  if (useLowerCase == True) {
+  if (useLowerCase === true) {
     finalPass = finalPass.concat(lowerCase);
   }
-  if (useSpecial == True) {
+  if (useSpecial === true) {
     finalPass = finalPass.concat(special);
   }
-  var finalPass = '';
+  var finalPass2=''
   for (let i = 0; i < passwordLength; i++){
-  var randomPw = Math.floor(Math.random()*(passwordLength));
-    finalPass = finalPass.concat(randomPw);
+  var randomPw = Math.floor(Math.random()*(finalPass.length));
+  finalPass2 = finalPass2.concat(finalPass[randomPw]);
   }
- return finalPass; 
+ return finalPass2; 
 }
- 
 
 
 // Write password to the #password input
