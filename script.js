@@ -21,6 +21,9 @@ function generatePassword (){
   console.log(passwordLength);
   if(passwordLength < 8 || passwordLength > 25){
     alert("Your password characters must be between 8 and 25 characters long.");
+    return ("You enterd an invaild number of characters, please choose between 8 and 25 characters.");
+  }
+  if (!useUpperCase && !useNumbers && !useLowerCase && !useSpecial){
   }
   var useUpperCase = confirm("Do you want to use upper case characters?");
   console.log(useUpperCase);
@@ -30,9 +33,6 @@ function generatePassword (){
   console.log(useLowerCase);
   var useSpecial = confirm("Do you want to include special characters?");
   console.log(useSpecial);
-  if (!useUpperCase && !useNumbers && !useLowerCase && !useSpecial){
-    alert("You must choose at least one type of character.");
-  }
   if (useUpperCase === true) {
     finalPass = finalPass.concat(upperCase);
   }
