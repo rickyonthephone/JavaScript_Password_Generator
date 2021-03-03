@@ -18,15 +18,21 @@ function generatePassword (){
   var finalPass = '';
 
   var passwordLength = parseInt(prompt("Choose your password length between 8 and 25 characters.")); 
-  console.log(passwordLength)
+  console.log(passwordLength);
+  if(passwordLength < 8 || passwordLength > 25){
+    alert("Your password characters must be between 8 and 25 characters long.");
+  }
   var useUpperCase = confirm("Do you want to use upper case characters?");
-  console.log(useUpperCase)
+  console.log(useUpperCase);
   var useNumbers = confirm("Do you want to use numbers?");
-  console.log(useNumbers)
+  console.log(useNumbers);
   var useLowerCase = confirm("Do you want to use lower case characters?");
-  console.log(useLowerCase)
+  console.log(useLowerCase);
   var useSpecial = confirm("Do you want to include special characters?");
-  console.log(useSpecial)
+  console.log(useSpecial);
+  if (!useUpperCase && !useNumbers && !useLowerCase && !useSpecial){
+    alert("You must choose at least one type of character.");
+  }
   if (useUpperCase === true) {
     finalPass = finalPass.concat(upperCase);
   }
@@ -42,11 +48,11 @@ function generatePassword (){
   var finalPass2=''
   for (let i = 0; i < passwordLength; i++){
   var randomPw = Math.floor(Math.random()*(finalPass.length));
+  console.log(randomPw)
   finalPass2 = finalPass2.concat(finalPass[randomPw]);
   }
  return finalPass2; 
 }
-
 
 // Write password to the #password input
 function writePassword() {
