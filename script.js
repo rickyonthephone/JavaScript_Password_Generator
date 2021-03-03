@@ -1,29 +1,35 @@
-
 //Password var values
 //Numbers
-var numbers = ('0123456789');
+var numbers = "0123456789";
 //Lowercase Alphabet
-var lowerCase = ('abcdefghijklmnopqrstuvwxyz');
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 //Uppercase Alphabet
-var upperCase = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //Special Characters
-var special = ('!@#$%^&*()?');
+var special = "!@#$%^&*()?";
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
 //Begin password creation criteria
 
-function generatePassword (){
-  var finalPass = '';
+function generatePassword() {
+  var finalPass = "";
 
-  var passwordLength = parseInt(prompt("Choose your password length between 8 and 25 characters.")); 
+  var passwordLength = parseInt(
+    prompt("Choose your password length between 8 and 25 characters.")
+  );
   console.log(passwordLength);
-  if(passwordLength < 8 || passwordLength > 25){
-    alert("Your password characters must be between 8 and 25 characters long.");
-    return ("You enterd an invaild number of characters, please choose between 8 and 25 characters.");
-  }
-  if (!useUpperCase && !useNumbers && !useLowerCase && !useSpecial){
+  if (passwordLength) {
+    if (passwordLength < 8 || passwordLength > 25) {
+      alert(
+        "Your password characters must be between 8 and 25 characters long."
+      );
+      return "You enterd an invaild number of characters, please choose between 8 and 25 characters.";
+    }
   }
   var useUpperCase = confirm("Do you want to use upper case characters?");
   console.log(useUpperCase);
@@ -33,6 +39,10 @@ function generatePassword (){
   console.log(useLowerCase);
   var useSpecial = confirm("Do you want to include special characters?");
   console.log(useSpecial);
+  if (!useUpperCase && !useNumbers && !useLowerCase && !useSpecial) {
+    alert("You must choose at least one of the criteria to create a password.");
+    return;
+  }
   if (useUpperCase === true) {
     finalPass = finalPass.concat(upperCase);
   }
@@ -45,13 +55,13 @@ function generatePassword (){
   if (useSpecial === true) {
     finalPass = finalPass.concat(special);
   }
-  var finalPass2=''
-  for (let i = 0; i < passwordLength; i++){
-  var randomPw = Math.floor(Math.random()*(finalPass.length));
-  console.log(randomPw)
-  finalPass2 = finalPass2.concat(finalPass[randomPw]);
+  var finalPass2 = "";
+  for (let i = 0; i < passwordLength; i++) {
+    var randomPw = Math.floor(Math.random() * finalPass.length);
+    console.log(randomPw);
+    finalPass2 = finalPass2.concat(finalPass[randomPw]);
   }
- return finalPass2; 
+  return finalPass2;
 }
 
 // Write password to the #password input
@@ -59,12 +69,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
 
 //8 characters minimum - 25 character maximum
 //to include numbers 0-9, characters a-z, characters A-Z, and array of 10 special characters
