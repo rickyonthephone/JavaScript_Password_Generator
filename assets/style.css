@@ -14,6 +14,7 @@ body,
 
 body {
   font-family: sans-serif;
+/* changed background color of page to make it easier to look at */
   background-color: black;
 }
 
