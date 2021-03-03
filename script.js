@@ -26,7 +26,7 @@ function generatePassword() {
 //Check for numeric value of password and check to make sure the numeric value falls in
 //range of the specified requirement of at least 8 but no more than 25 characters
   if (passwordLength) {
-    if (passwordLength < 8 || passwordLength > 25 || NaN) {
+    if (passwordLength < 8 || passwordLength > 25) {
 //in the event the user selects an invalid number, user will receive an alert and have message
 //generate in the password box
       alert(
