@@ -8,6 +8,8 @@ Github code: https://github.com/rickyonthephone/JavaScript_Password_Generator
 
 Github Pages: https://rickyonthephone.github.io/JavaScript_Password_Generator/
 
+![ScreenShot](https://github.com/rickyonthephone/JavaScript_Password_Generator/blob/master/assets/Images/Screen%20Shot%202021-03-06%20at%202.19.01%20PM.png)
+
 
 
 ## User Scope
